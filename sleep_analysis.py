@@ -1,6 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import xml.etree.ElementTree as ET
+import numpy as np
+import seaborn as sns
 
 def get_sleep_records_from_xml(xml_file):
     tree = ET.parse(xml_file)
@@ -28,10 +30,25 @@ def analyze_sleep_data(sleep_data):
     return daily_sleep
 
 def visualize_sleep_data(daily_sleep):
-    # Convert sleep duration to hours and minutes
+    # Convert sleep duration to hours
     daily_sleep = daily_sleep.dt.total_seconds() / 3600
-    daily_sleep.plot(kind='bar', figsize=(15, 5), title='Daily Sleep Duration')
-    plt.xlabel('Date')
-    plt.ylabel('Sleep Duration (hours)')
-    plt.show()
 
+    # Set Seaborn style and create color map
+    sns.set_style("whitegrid")
+    cmap = plt.get_cmap("coolwarm_r")
+    norm = plt.Normalize(daily_sleep.min(), daily_sleep.max())
+    
+    # Create the plot
+    plt.figure(figsize=(15, 5))
+    sns.barplot(x=daily_sleep.index, y=daily_sleep.values, palette=cmap(norm(daily_sleep.values)))
+
+    # Set title and labels
+    plt.title('Daily Sleep Duration', fontsize=16)
+    plt.xlabel('Date', fontsize=12)
+    plt.ylabel('Sleep Duration (hours)', fontsize=12)
+
+    # Rotate x-axis labels for better readability
+    plt.xticks(rotation=45)
+
+    # Show the plot
+    plt.show()
