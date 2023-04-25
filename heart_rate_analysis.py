@@ -25,7 +25,7 @@ def visualize_heart_rate_data(daily_heart_rate):
     plt.figure(figsize=(15, 5))
 
     # Draw a line plot for the daily average heart rate values
-    sns.lineplot(x=daily_heart_rate.index, y=daily_heart_rate.values, color='#0c0c0d', linewidth=2)
+    sns.lineplot(x=daily_heart_rate.index, y=daily_heart_rate.values, color='#0c0c0d', linewidth=1)
 
     # Prepare a colormap and normalize the data
     cmap = plt.get_cmap("coolwarm")
