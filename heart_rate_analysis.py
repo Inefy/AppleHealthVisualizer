@@ -31,5 +31,14 @@ def visualize_heart_rate_data(daily_heart_rate):
     # Rotate x-axis labels for better readability
     plt.xticks(rotation=45)
 
+    # Calculate mean and range
+    mean_heart_rate = daily_heart_rate.mean()
+    heart_rate_range = daily_heart_rate.max() - daily_heart_rate.min()
+
+    # Add mean and range annotations
+    plt.annotate(f'Mean: {mean_heart_rate:.2f} BPM', xy=(1.01, 0.75), xycoords='axes fraction', fontsize=12, fontweight='bold', color='#3f37c9')
+    plt.annotate(f'Range: {heart_rate_range:.2f} BPM', xy=(1.01, 0.65), xycoords='axes fraction', fontsize=12, fontweight='bold', color='#3f37c9')
+
     # Show the plot
     plt.show()
+
