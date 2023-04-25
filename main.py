@@ -16,8 +16,8 @@ if __name__ == "__main__":
     if data_type.lower() == "sleep":
         sleep_data = preprocess_sleep_data(raw_data)
         sleep_data = get_data_range(sleep_data, start_date, end_date)
-        daily_sleep = analyze_sleep_data(sleep_data)
-        visualize_sleep_data(daily_sleep)
+        daily_sleep, rem_sleep, deep_sleep = analyze_sleep_data(sleep_data)
+        visualize_sleep_data(daily_sleep, rem_sleep, deep_sleep)
 
     elif data_type.lower() == "heart_rate":
         heart_rate_data = preprocess_heart_rate_data(raw_data)
