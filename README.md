@@ -1,6 +1,6 @@
 # Apple Health Data Analyzer
 
-This Python application allows you to analyze and visualize your Apple Health data, including sleep, heart rate, and steps. The script processes the data exported from the Apple Health app and creates clear, easy-to-read visualizations, which include various statistics like mean, median, and mode.
+This Python application allows you to analyze and visualize your Apple Health data from the Apple Watch, including sleep, heart rate, and steps. The script processes the data exported from the Apple Health app and creates clear, easy-to-read visualizations, which include various statistics like mean, median, and mode.
 
 ![Sleep graph](sleepscreenshot.png)
 
